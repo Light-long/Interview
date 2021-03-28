@@ -12,7 +12,7 @@ package com.tx.javase;
  * - 延迟加载
  */
 public class Singleton {
-    private static Singleton instance = null;
+    private volatile static Singleton instance = null;
 
     private Singleton() {}
 
