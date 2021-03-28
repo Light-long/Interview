@@ -1,4 +1,4 @@
-package com.tx;
+package com.tx.javase;
 
 public class SelfIncreasing {
     public static void main(String[] args) {
