@@ -25,26 +25,23 @@ public class QuickSort {
      * @return 返回基准pivot索引
      */
     public static int partition(int[] array,int left,int right) {
-        // 默认第一个元素为基准元素
+        // 默认第一个元素为基准元素,记住这个元素
         int pivot = array[left];
         int i = left;
         int j = right;
         while (i < j) {
             // 先从右往左找第一个小于pivot的元素
             while (i<j && array[j] > pivot) j--;
+            // 找到以后，赋值给arr[i]
+            if (i < j) array[i] = array[j];
             // 从左往右找第一个大于pivot的元素
             while (i<j && array[i] < pivot) i++;
-            swap(array,i,j);
+            // 找到以后赋值给arr[j]
+            if (i < j) array[j] = array[i];
         }
-        // 将基准元素与array[left]元素swap，基准归位
-        // todo
-        return left;
-    }
-
-    private static void swap(int[] array, int left, int right) {
-        int temp = array[left];
-        array[left] = array[right];
-        array[right] = temp;
+        // 将基准元素放到索引为i的位置
+        array[i] = pivot;
+        return i;
     }
 
     public static void main(String[] args) {
